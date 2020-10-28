@@ -59,15 +59,12 @@ class Lane(object):
             frame.draw_point(pixel_location, lane_color)
 
     def draw_on_world(self, world):
-        from carla import Color
         for marking in self.left_markings:
             world.debug.draw_point(marking.as_simulator_location(),
-                                   size=0.1,
-                                   color=Color(255, 255, 0))
+                                   size=0.1)
         for marking in self.right_markings:
             world.debug.draw_point(marking.as_simulator_location(),
-                                   size=0.1,
-                                   color=Color(255, 255, 0))
+                                   size=0.1)
 
     def get_closest_lane_waypoint(self, location):
         if self.is_on_lane(location):
